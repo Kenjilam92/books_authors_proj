@@ -1,0 +1,74 @@
+from books_authors_app.models import Book, Author
+Book.objects.create(title="C Sharp")
+Book.objects.create(title="Java")
+Book.objects.create(title="Python")
+Book.objects.create(title="PHP")
+Book.objects.create(title="Ruby")
+
+Query: Create 5 different authors: , , , , 
+ 
+
+Author.objects.create(first_name="Jane",last_name="Austen")
+Author.objects.create(first_name="Emily",last_name="Dickinson")
+Author.objects.create(first_name="Fyodor",last_name="Dostoevsky")
+Author.objects.create(first_name="William",last_name="Shakespeare")
+Author.objects.create(first_name="Lau",last_name="Tzu")
+
+C=Book.objects.filter(title="C Sharp")
+C.title="C#"
+C.save()
+
+change_name=Author.objects.get(id=4)
+change_name.first_name="Bill"
+change_name.save()
+
+***Query: Assign the first author to the first 2 books
+
+Java=Book.objects.get(id=2)
+first_author=Author.objects.get(id=1)
+first_author.book.add(C)
+first_author.book.add(Java)
+
+***Query: Assign the second author to the first 3 books
+
+Python=Book.objects.get(id=3)
+second_author=Author.objects.get(id=2)
+second_author.book.add(C)
+second_author.book.add(Java)
+second_author.book.add(Python)
+
+***Query: Assign the third author to the first 4 books
+
+third_author=Author.objects.get(id=3)
+PHP=Book.objects.get(title="PHP")
+third_author.book.add(C)
+third_author.book.add(Java)
+third_author.book.add(Python)
+third_author.book.add(PHP)
+
+***Query: Assign the fourth author to the first 5 books (or in other words, all the books)
+
+Ruby=Book.objects.get(title="Ruby")
+fourth_author=Author.objects.get(id=4)
+fourth_author.book.add(C,Java,Python,PHP,Ruby)
+
+***Query: Retrieve all the authors for the 3rd book
+
+Book.objects.get(id=3).author.all()
+
+***Query: Remove the first author of the 3rd book
+
+Book.objects.get(id=3).author.remove(first_author)
+
+***Query: Add the 5th author as one of the authors of the 2nd book
+
+fifth_author=Author.objects.get(id=5)
+Java.author.add(fifth_author)
+
+***Query: Find all the books that the 3rd author is part of
+
+third_author.book.all()
+
+***Query: Find all the authors that contributed to the 5th book
+
+Ruby.author.all()
