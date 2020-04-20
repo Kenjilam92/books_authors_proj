@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+body{
+    padding: 20px 30px 20px 30px ;
+}
+.desc{
+    display: flex;
+    justify-content: start;
+}
+.desc p{
+    width: fit-content;
+    margin-right: 10px;
+}
+.details{
+    width: 300px;
+}
+.add_new button{
+    padding: 3px 5px 3px 5px;
+    border-radius: 5%;
+    box-shadow: 5px 5px black;
+}
+.authors li{
+    margin-left: 30px;
+}

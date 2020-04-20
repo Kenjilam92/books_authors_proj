@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add an Author</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/add_theme.css' %}">
+</head>
+<body>
+    <div class="left">
+    <h1>Add an Author</h1>
+    <form action="/adding_an_author" method="post" id="add_author">
+        {% csrf_token %}
+    <label for="first_name">First Name:</label>
+    <input type="text" name="first_name">
+    <label for="last_name">Last Name:</label>
+    <input type="text" name="last_name">
+    <label for="notes">Notes:</label>
+    <textarea name="notes" rows="4" form="add_author"></textarea>
+    <button type="submit">Add</button>
+    </form>
+    </div>
+    <table class="right table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th><th>Name</th><th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in authors_list %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.first_name}} {{i.last_name}}</td>
+                <td><a href="authors/{{i.id}}">View</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

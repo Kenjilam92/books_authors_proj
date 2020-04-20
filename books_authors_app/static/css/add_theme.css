@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+body{
+    display: grid;
+    grid-template-columns: 45% auto;
+    grid-column-gap: 20px;
+    padding: 20px;
+}
+.left{
+    grid-column: 1;
+}
+.right{
+    grid-column: 2;
+}
+.left form{
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+.left form input{
+    grid-column: 2;
+    margin-bottom: 10px;
+}
+.left form label{
+    grid-column: 1;
+    margin-bottom: 10px;
+}
+.left form textarea{
+    margin-bottom: 10px;
+}
+.left form button{
+    border-radius: 10%;
+    grid-column: 2;
+    box-shadow: 5px 5px black ;
+    width: fit-content;
+    padding: 3px 5px 3px 5px;
+    margin-bottom: 10px;
+}
